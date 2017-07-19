@@ -35,8 +35,8 @@ header .nav_menu .navbar-nav > .open > a, header .nav_menu .navbar-nav > .open >
 .owl-carousel.main_slider .owl-nav .owl-next{position: absolute; right: 3%; top: 50%; width: 40px; height: 40px; background: rgba(255, 255, 255, 0.5); border-radius: 50%; line-height: 35px; text-align: center; font-size: 25px; font-weight: 300; color: #333; box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.5);}
 
 .home_about{/*border:1px solid red;*/}
-.home_about .sec_wrapper{padding: 40px 0;}
-.home_about .header{text-align: center;}
+.home_about .sec_wrapper{padding: 0 0 40px;}
+.home_about .header{text-align: center; padding: 45px 0 0;}
 .home_about .title{margin: 0 0 30px; display: inline-block; text-transform: uppercase; font-weight: 400; padding: 10px; text-align: center; position: relative; border-bottom: 1px solid #f06d27;}
 .home_about .title::before{content: ""; display: inline-block; position: absolute; bottom: -4px; width: 8px; height: 8px; border: 1px solid #f06d27; background-color: #ffffff; transform: rotate(45deg); left: 0;}
 .home_about .title::after{content: ""; display: inline-block; position: absolute; bottom: -4px; width: 8px; height: 8px; border: 1px solid #f06d27; background-color: #ffffff; transform: rotate(45deg); right: 0;}
@@ -55,7 +55,12 @@ transform: translateY(-50%) rotate(45deg); transition: all 0.3s ease; }
 transform: translateY(-50%) rotate(45deg); transition: all 0.3s ease;}
 .home_pro .owl-carousel.home_new_pro .owl-nav .owl-next i{transform: rotate(-45deg); padding-left: 20px; padding-bottom: 16px;
 }
-.home_pro .pro_caption{background: #ffffff; border-bottom: 2px solid #F06D27;}
+.home_pro .pro_block{border-left: none;}
+.home_pro .pro_block .block{border-left: none; margin-bottom: 0;}
+/*.home_pro .block{height: 307px; border-left: none;}*/
+.home_pro .block a{}
+.home_pro .block img{}
+.home_pro .pro_block .block .pro_caption{background: #ffffff; border-bottom: 2px solid #F06D27;}
 .home_pro .pro_tittle{}
 .home_pro .pro_tittle a{display: block; text-align: center; text-transform: uppercase; color: #333; text-decoration: none; font-weight: 400; padding:5px 5px 0;}
 .home_pro .pro_brand{}
@@ -166,6 +171,17 @@ footer .footer_list.enquiry textarea:-moz-placeholder {color: #fff; font-weight:
   border: 1px solid #ddd;
 }
 
+#pro_enquiry_modal .modal-header{padding: 10px 15px; border-bottom: 1px solid #fff; background: #333; color: #fff;     border-radius: 4px 4px 0 0; border-top: 2px solid #F06D27;}
+#pro_enquiry_modal .modal-header .close{color: #fff;}
+#pro_enquiry_modal .modal-body{padding: 10px 15px;}
+#pro_enquiry_modal .modal-body input{border-radius: 0; border: none; border-bottom: 1px solid #ccc; box-shadow: none; padding: 0 12px; height: 26px;}
+#pro_enquiry_modal .modal-body input:focus{border-bottom: 1px solid #F06D27;}
+#pro_enquiry_modal .modal-body textarea{resize: none; border-radius: 0; border: none; border-bottom: 1px solid #ccc; box-shadow: none; padding: 0 12px; height: 100px;}
+#pro_enquiry_modal .modal-body textarea:focus{border-bottom: 1px solid #F06D27;}
+#pro_enquiry_modal .modal-footer{background: #333; border-top: 1px solid #fff; border-radius: 0 0 4px 4px;     border-bottom: 2px solid #F06D27;}
+#pro_enquiry_modal .modal-footer button{color: #333; background: #fff; border-color: #fff; padding: 6px 15px;
+    text-transform: capitalize; -webkit-transition: all ease-in 0.5s; transition: all ease-in 0.5s;}
+#pro_enquiry_modal .modal-footer button:hover, #pro_enquiry_modal .modal-footer button:focus, #pro_enquiry_modal .modal-footer button:active{background: #F06D27; border-color: #F06D27; -webkit-transition: all ease-in 0.5s; transition: all ease-in 0.5s;}
 
 
 
@@ -277,12 +293,14 @@ ul{ padding-left: 0; list-style: none; margin: 0;}
   }
 @media screen and (max-width: 1024px) {
 	header .nav_menu .navbar-nav{width: 80%;}
+  .home_about .header{padding: 23px 0 0;}
 }
 @media screen and (max-width: 980px) {
 	.navbar-brand{width: 130px;}
 	header .nav_menu .navbar-nav > li > a{font-size: 12px; padding: 10px 7px !important;}
 	header .nav_menu .navbar-nav{padding: 11px 0;}
 	footer .footer_list.enquiry{margin-top: 30px;}
+  .home_pro .pro_block .block{margin-bottom: 30px;}
 }
 @media screen and (max-width: 800px) {
 }
