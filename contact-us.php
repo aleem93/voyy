@@ -9,20 +9,14 @@
     <meta name="keywords" content=""/>
     <?php include 'includes/head.php'; ?>
   </head>
-  <body>
+  <body class="contact">
     <?php include 'includes/header.php'; ?>
      <section class="top_banner">
        <img src="images/category-banner-bg2.jpg" class="img-responsive" alt="category-banner-bg" width=" " height=" " />
        <div class="caption">
-        <h1 class="tittle">Our Shop</h1>
+        <h1 class="tittle">Contact us</h1>
         <p>Something different, every day.</p>
        </div>
-        <!-- <div class="bread_caption">
-          <ul class="breadcrumb">
-            <li><a href="#">Home</a></li>
-            <li class="active">Our Shpp</li>
-          </ul>
-        </div> -->
      </section>
      <section class="archive_categories">
        <div class="container">
@@ -31,22 +25,22 @@
               <div class="category_box clearfix">
                 <ul>
                   <li>
-                    <a href="javascript:void(0);">
-                      <div class="category_icon"><img src="images/cellphones.jpg" alt=""></div>
-                      <div class="content">Personal Care</div>
-                    </a>
+                      <div class="category_icon"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+                      <div class="content">House 06, Road 01, Katashur, Mohammadpur, Dhaka-1207, Bangladesh</div>
                   </li>
                   <li>
-                    <a href="javascript:void(0);">
-                      <div class="category_icon"><img src="images/computers.jpg" alt=""></div>
-                      <div class="content">Home Appliances</div>
-                    </a>
+                      <div class="category_icon"><i class="fa fa-phone" aria-hidden="true"></i></div>
+                      <div class="content">
+                        <p>(+880) 1945 082759</p>
+                        <p>(+880) 1945 082759</p>
+                      </div>
                   </li>
                   <li>
-                    <a href="javascript:void(0);">
-                      <div class="category_icon"><img src="images/accessories.jpg" alt=""></div>
-                      <div class="content">Accessories</div>
-                    </a>
+                      <div class="category_icon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                      <div class="content">
+                        <a href="mailto:info@voyy.com">info@voyy.com</a>
+                        <a href="mailto:info@voyy.com">info@voyy.com</a>
+                      </div>
                   </li>
                 </ul>
               </div>
@@ -54,135 +48,48 @@
          </div>
        </div>
      </section>
-     <section class="pro_category">
+     <section class="map_form">
+       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.0907680260734!2d77.32578721467928!3d28.5970536824318!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce4ffd0000001%3A0x97587b436ee39762!2sVibes+Communications+Pvt.Ltd.+-+Digital+Marketing+Agency+in+Delhi+NCR!5e0!3m2!1sen!2sin!4v1500539394692" width="100%" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
        <div class="container">
          <div class="row">
-           <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
-             <div class="side_category">
-               <div class="heading">
-                 <h2 class="title">Product Categories</h2>
-               </div>
-               <ul class="category_list">
-                  <li>
-                    <div class="panel panel-primary">
-                      <div class="panel-heading">
-                        <h3 class="panel-title"><a class="clearfix" href="javascript:void(0);">All</a></h3>
-                        
-                      </div>
+           <div class="contact_form">
+             <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0">
+              <div class="category_box clearfix">
+                <form class="pro_form">
+                  <h5 class="sec_title">Get In Touch</h5>
+                  <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col_480_12">
+                      <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Name*"/>
                     </div>
-                 </li>
-                 <li>
-                    <div class="panel panel-primary">
-                      <div class="panel-heading">
-                        <h3 class="panel-title">Men</h3>
-                        <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
-                      </div>
-                      <div class="panel-body">
-                        <ul>
-                          <li><a href="javascript:void(0);">Footwear</a></li>
-                          <li><a href="javascript:void(0);">Top wear</a></li>
-                          <li><a href="javascript:void(0);">Sports wear</a></li>
-                        </ul>
-                      </div>
                     </div>
-                 </li>
-                 <li>
-                    <div class="panel panel-primary">
-                      <div class="panel-heading">
-                        <h3 class="panel-title">Women</h3>
-                        <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col_480_12">
+                       <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Email id*"/>
                       </div>
-                      <div class="panel-body">
-                        <ul>
-                          <li><a href="javascript:void(0);">Footwear</a></li>
-                          <li><a href="javascript:void(0);">Top wear</a></li>
-                          <li><a href="javascript:void(0);">Sports wear</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                 </li>
-               </ul>
-             </div>
+                     </div>
+                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col_480_12">
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Contact*"/>
+                        </div>
+                     </div>
+                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col_480_12">
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="City*"/>
+                        </div>
+                     </div>
+                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="form-group">
+                          <textarea placeholder="Message" class="textarea form-control" name="message" maxlength="300" rows="8" cols="20"></textarea>
+                        </div>
+                     </div>
+                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                       <button type="button" class="btn btn-default pull-left submit_btn">Submit</button>
+                     </div>
+                  </div> 
+                </form>
+              </div>
            </div>
-           <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
-             <div class="row">
-                <div class="pro_block clearfix">
-                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-4 col_480_10">
-                   <div class="block">
-                     <a href="javascript:void(0);" data-toggle="modal" data-target="#pro_detail_modal"><img src="images/pro/symphony-pro.jpg" class="img-responsive" alt="banner" width=" " height=" " ></a>
-                     <div class="pro_caption">
-                      <div class="pro_tittle"><a href="javascript:void(0);">Smart Phone</a></div>
-                      <div class="pro_brand"><a href="javascript:void(0);">Symphony</a></div>
-                    </div>
-                   </div>
-                 </div>
-                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-4 col_480_10">
-                   <div class="block">
-                     <a href="javascript:void(0);"><img src="images/pro/sony-pro.jpg" class="img-responsive" alt="banner" width=" " height=" " ></a>
-                      <div class="pro_caption">
-                        <div class="pro_tittle"><a href="javascript:void(0);">Smart Phone</a></div>
-                        <div class="pro_brand"><a href="javascript:void(0);">Symphony</a></div>
-                      </div>
-                   </div>
-                 </div>
-                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-4 col_480_10">
-                   <div class="block">
-                     <a href="javascript:void(0);"><img src="images/pro/htc-pro.jpg" class="img-responsive" alt="banner" width=" " height=" " ></a>
-                      <div class="pro_caption">
-                        <div class="pro_tittle"><a href="javascript:void(0);">Smart Phone</a></div>
-                        <div class="pro_brand"><a href="javascript:void(0);">Symphony</a></div>
-                      </div>
-                   </div>
-                 </div>
-                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-4 col_480_10">
-                   <div class="block">
-                     <a href="javascript:void(0);"><img src="images/pro/xperia-pro.jpg" class="img-responsive" alt="banner" width=" " height=" " ></a>
-                      <div class="pro_caption">
-                        <div class="pro_tittle"><a href="javascript:void(0);">Smart Phone</a></div>
-                        <div class="pro_brand"><a href="javascript:void(0);">Symphony</a></div>
-                      </div>
-                   </div>
-                 </div>
-                 <div class="clearfix hidden-sm hidden-xs"></div>
-                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-4 col_480_10">
-                   <div class="block">
-                     <a href="javascript:void(0);"><img src="images/pro/symphony-pro.jpg" class="img-responsive" alt="banner" width=" " height=" " ></a>
-                     <div class="pro_caption">
-                      <div class="pro_tittle"><a href="javascript:void(0);">Smart Phone</a></div>
-                      <div class="pro_brand"><a href="javascript:void(0);">Symphony</a></div>
-                    </div>
-                   </div>
-                 </div>
-                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-4 col_480_10">
-                   <div class="block">
-                     <a href="javascript:void(0);"><img src="images/pro/sony-pro.jpg" class="img-responsive" alt="banner" width=" " height=" " ></a>
-                      <div class="pro_caption">
-                        <div class="pro_tittle"><a href="javascript:void(0);">Smart Phone</a></div>
-                        <div class="pro_brand"><a href="javascript:void(0);">Symphony</a></div>
-                      </div>
-                   </div>
-                 </div>
-                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-4 col_480_10">
-                   <div class="block">
-                     <a href="javascript:void(0);"><img src="images/pro/htc-pro.jpg" class="img-responsive" alt="banner" width=" " height=" " ></a>
-                      <div class="pro_caption">
-                        <div class="pro_tittle"><a href="javascript:void(0);">Smart Phone</a></div>
-                        <div class="pro_brand"><a href="javascript:void(0);">Symphony</a></div>
-                      </div>
-                   </div>
-                 </div>
-                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-4 col_480_10">
-                   <div class="block">
-                     <a href="javascript:void(0);"><img src="images/pro/xperia-pro.jpg" class="img-responsive" alt="banner" width=" " height=" " ></a>
-                      <div class="pro_caption">
-                        <div class="pro_tittle"><a href="javascript:void(0);">Smart Phone</a></div>
-                        <div class="pro_brand"><a href="javascript:void(0);">Symphony</a></div>
-                      </div>
-                   </div>
-                 </div>
-                 <div class="clearfix hidden-sm hidden-xs"></div>
-               </div>
-             </div>
            </div>
          </div>
        </div>
