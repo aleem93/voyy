@@ -35,7 +35,7 @@ header .nav_menu .navbar-nav > .open > a, header .nav_menu .navbar-nav > .open >
 .owl-carousel.main_slider .owl-nav .owl-next{position: absolute; right: 3%; top: 50%; width: 40px; height: 40px; background: rgba(255, 255, 255, 0.5); border-radius: 50%; line-height: 35px; text-align: center; font-size: 25px; font-weight: 300; color: #333; box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.5);}
 
 .home_about{/*border:1px solid red;*/}
-.home_about .sec_wrapper{padding: 0 0 40px;}
+.home_about .sec_wrapper{padding: 30px 0 ;}
 .home_about .header{text-align: center; padding: 45px 0 0;}
 .home_about .title{margin: 0 0 30px; display: inline-block; text-transform: uppercase; font-weight: 400; padding: 10px; text-align: center; position: relative; border-bottom: 1px solid #f06d27;}
 .home_about .title::before{content: ""; display: inline-block; position: absolute; bottom: -4px; width: 8px; height: 8px; border: 1px solid #f06d27; background-color: #ffffff; transform: rotate(45deg); left: 0;}

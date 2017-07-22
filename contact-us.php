@@ -31,15 +31,15 @@
                   <li>
                       <div class="category_icon"><i class="fa fa-phone" aria-hidden="true"></i></div>
                       <div class="content">
-                        <p>(+880) 1945 082759</p>
-                        <p>(+880) 1945 082759</p>
+                        <p>+91-9650858881</p>
+                        <p>+91-120-4101680</p>
                       </div>
                   </li>
                   <li>
                       <div class="category_icon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
                       <div class="content">
                         <a href="mailto:info@voyy.com">info@voyy.com</a>
-                        <a href="mailto:info@voyy.com">info@voyy.com</a>
+                        <a href="mailto:info@vibescom.in">info@vibescom.in</a>
                       </div>
                   </li>
                 </ul>

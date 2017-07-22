@@ -23,19 +23,19 @@
 					<ul class="dropdown-menu mega-dropdown-menu">
 						<li class="col-lg-4 col-md-4 col-sm-4 col-xs-12 border_right">
 							<ul>
-								<li class="dropdown-header"><a href="javascript:void(0);">Personal Care</a></li>
+								<li class="dropdown-header"><a href="category.php">Personal Care</a></li>
 								<li><a href="javascript:void(0);">Men</a></li>
 								<li><a href="javascript:void(0);">Women</a></li>
 							</ul>
 						</li>
 						<li class="col-lg-4 col-md-4 col-sm-4 col-xs-12 border_right">
 							<ul>
-								<li class="dropdown-header"><a href="javascript:void(0);">Home Appliances</a></li>			
+								<li class="dropdown-header"><a href="category.php">Home Appliances</a></li>			
 							</ul>
 						</li>
 						<li class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 							<ul>
-								<li class="dropdown-header"><a href="javascript:void(0);">Accessories</a></li>                       
+								<li class="dropdown-header"><a href="category.php">Accessories</a></li>                       
 							</ul>
 						</li>
 					</ul>				
