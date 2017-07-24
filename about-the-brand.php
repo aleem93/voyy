@@ -11,6 +11,7 @@
   </head>
   <body class="contact">
     <?php include 'includes/header.php'; ?>
+
      <section>
        <img src="images/about-us-banner.jpg" class="img-responsive" alt="about-us-banner" width=" " height=" " />
      </section>
