@@ -14,7 +14,7 @@ if(isset($_POST["cat_edit"]))
 	mysql_query("update product_category set category_name='$cat_name', description='$description', created_at=now() where id='".$_GET['cat_id']."'", $conn);
 ?>
 <script >
-window.location="product_category.php";
+window.location="dash_category.php";
 </script>
 <?php	
 }
@@ -25,7 +25,7 @@ if(isset($_POST["subcat_edit"]))
 	mysql_query("update prod_subcategory set prod_subcategory='$subcat_name',category_id='$select_cat', description='$sub_desc', created_at=now() where id='".$_GET['subcat_id']."'", $conn);
 ?>
 <script >
-window.location="prod_subcategory.php";
+window.location="dash_subcategory.php";
 </script>
 <?php	
 }
@@ -33,10 +33,13 @@ window.location="prod_subcategory.php";
 if(isset($_POST["prod_add"]))
 {
 	extract($_POST);
-	mysql_query("update manage_product set prod_name='$prod_name', prod_size='$size', category_id='$select_cat', sub_cat_id='$select_sub_cat', model_num='$model_num', description='$desc', specification='$spec',date=now() where id='".$_GET['product_id']."'", $conn);
+	$target_dir = "../images/pro/";
+$target_file = $target_dir.$_FILES['prod_image']['name'];
+ move_uploaded_file($_FILES['prod_image']['tmp_name'], $target_file);
+	mysql_query("update manage_product set prod_image='".$_FILES['prod_image']['name']."', prod_name='$prod_name', prod_size='$size', category_id='$select_cat', sub_cat_id='$select_sub_cat', model_num='$model_num', description='$desc', specification='$spec',date=now() where id='".$_GET['product_id']."'", $conn);
 ?>
 <script >
-window.location="manage_product.php";
+window.location="dash_manage_product.php";
 </script>
 <?php	
 }
@@ -74,7 +77,7 @@ window.location="manage_product.php";
     });
 	</script>
       </head>
-  <body class="home">
+  <body class="home" style="background-color:#333;">
   <div class="container">
 <!-- Edit Modal -->
 <?php if(isset($_GET['cat_id']))
@@ -162,7 +165,7 @@ Description:<textarea class="form-control" name="sub_desc" ><?php echo $edit_que
     
       <!-- Modal content-->
       <div class="modal-content">
-	  <form action="" method="POST">
+	  <form action="" method="POST" enctype="multipart/form-data">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Edit Product Details
@@ -197,6 +200,7 @@ Description:<textarea class="form-control" name="sub_desc" ><?php echo $edit_que
 		  <option <?php if($fetch_product1['sub_cat_id']==$fetch_sub_cat1['id']){ ?> selected <?php } ?> value="<?php echo $fetch_sub_cat1['id'];?>"><?php echo $fetch_sub_cat1['prod_subcategory'];?></option>
 		  <?php } ?>
 		  </select>
+		  Product Image:<input name="prod_image" id="prod_image" class="form-control " type="file">
 		  Model No.<input type="text" class="form-control " name="model_num" value="<?php echo $fetch_product1['model_num']; ?>" >
 		  Size:<input type="text" class="form-control " name="size" value="<?php echo $fetch_product1['prod_size']; ?>" >
 Description:<textarea class="form-control" name="desc" ><?php echo $fetch_product1['description']; ?></textarea>

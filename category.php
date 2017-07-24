@@ -1,3 +1,28 @@
+<?php	
+$conn=mysql_connect("localhost","root","");
+mysql_select_db("voyy",$conn);
+$fetch_images='';
+if(isset($_GET['category_id']))
+{
+if(isset($_GET['cat_type']))
+{
+	$fetch_sub_id=mysql_query("select id from prod_subcategory where prod_subcategory='".$_GET['cat_type']."' and category_id='".$_GET['category_id']."'");
+	$fetch_sub_id1=mysql_fetch_array($fetch_sub_id);
+$fetch_images = mysql_query("select * from manage_product where sub_cat_id='".$fetch_sub_id1['id']."'", $conn);
+?>
+<script></script>
+<?php
+}
+else
+{
+$fetch_images = mysql_query("select * from manage_product where category_id='".$_GET['category_id']."' ", $conn);
+}
+}
+else
+{
+$fetch_images = mysql_query("select * from manage_product",$conn);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,6 +33,12 @@
     <meta name="description" content=""/>
     <meta name="keywords" content=""/>
     <?php include 'includes/head.php'; ?>
+	<script>
+	function modal_value(image_id)
+	{
+		window.location="category.php?image_id="+image_id;
+	}
+	</script>
   </head>
   <body>
     <?php include 'includes/header.php'; ?>
@@ -24,36 +55,31 @@
           </ul>
         </div> -->
      </section>
+	
+	 <?php $fetch_product_category=mysql_query("select id, category_name from product_category");
+	 ?>
      <section class="archive_categories">
        <div class="container">
          <div class="row">
            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <div class="category_box clearfix">
+              <div class="category_box clearfix text-center">
                 <ul>
-                  <li>
-                    <a href="javascript:void(0);">
-                      <div class="category_icon"><img src="images/cellphones.jpg" alt=""></div>
-                      <div class="content">Personal Care</div>
-                    </a>
+				<?php while($fetch_product_category1=mysql_fetch_array($fetch_product_category)) {?>
+                  <li  id="active<?php echo $fetch_product_category1['id'] ?>" onClick ="absd(<?php echo $fetch_product_category1['id'] ?>);">
+<a href="category.php?con=3&category_id=<?php echo $fetch_product_category1['id'] ?>">				  
+                      <!--<div class="category_icon"><img src="images/cellphones.jpg" alt=""></div>-->
+                      <div class="content"><?php echo $fetch_product_category1['category_name']; ?></div>
+                   </a>
                   </li>
-                  <li>
-                    <a href="javascript:void(0);">
-                      <div class="category_icon"><img src="images/computers.jpg" alt=""></div>
-                      <div class="content">Home Appliances</div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="javascript:void(0);">
-                      <div class="category_icon"><img src="images/accessories.jpg" alt=""></div>
-                      <div class="content">Accessories</div>
-                    </a>
-                  </li>
+              
+				<?php } ?>
                 </ul>
               </div>
            </div>
          </div>
        </div>
      </section>
+	 
      <section class="pro_category">
        <div class="container">
          <div class="row">
@@ -62,158 +88,162 @@
                <div class="heading">
                  <h2 class="title">Product Categories</h2>
                </div>
+			   <?php 
+			   if(isset($_GET['category_id']))
+			   {
+			   if($_GET['category_id']==2){ 
+			   ?>
+			  
                <ul class="category_list">
                   <li>
-                    <div class="panel panel-primary">
+				  <a href="category.php?category_id=2" style="cursor:pointer; text-decoration:none"><div class="panel panel-primary">
                       <div class="panel-heading">
-                        <h3 class="panel-title"><a class="clearfix" href="javascript:void(0);">All</a></h3>
-                        
-                      </div>
-                    </div>
+                        <h3 class="panel-title">All</h3>
+                      </div>                      
+                    </div></a>
                  </li>
+				 <?php $fetch_sub_category=mysql_query("select * from prod_subcategory where category_id='".$_GET['category_id']."'");
+				 while($fetch_sub_category1=mysql_fetch_array($fetch_sub_category))
+				 {
+					 extract($fetch_sub_category1);
+				 ?>
                  <li>
-                    <div class="panel panel-primary">
+
+                    <a href="category.php?cat_type=<?php echo $prod_subcategory; ?>&category_id=2" style="cursor:pointer; text-decoration:none">
+					<div class="panel panel-primary">
                       <div class="panel-heading">
-                        <h3 class="panel-title">Men</h3>
-                        <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
-                      </div>
-                      <div class="panel-body">
-                        <ul>
-                          <li><a href="javascript:void(0);">Footwear</a></li>
-                          <li><a href="javascript:void(0);">Top wear</a></li>
-                          <li><a href="javascript:void(0);">Sports wear</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                 </li>
-                 <li>
-                    <div class="panel panel-primary">
-                      <div class="panel-heading">
-                        <h3 class="panel-title">Women</h3>
-                        <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
-                      </div>
-                      <div class="panel-body">
-                        <ul>
-                          <li><a href="javascript:void(0);">Footwear</a></li>
-                          <li><a href="javascript:void(0);">Top wear</a></li>
-                          <li><a href="javascript:void(0);">Sports wear</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                 </li>
+                        <h3 class="panel-title"><?php echo $prod_subcategory; ?></h3>             
+                    </div></div></a>
+                 </li> 
+				 <?php } ?>
                </ul>
+			   <?php } ?>
+			   <?php if($_GET['category_id']==1){ ?>
+               <ul class="category_list">
+                  <li>
+				  <a href="category.php?category_id=1" style="cursor:pointer; text-decoration:none"><div class="panel panel-primary">
+                      <div class="panel-heading">
+                        <h3 class="panel-title">All</h3>
+                      </div>                     
+                    </div></a>
+                 </li>
+<?php $fetch_sub_category=mysql_query("select * from prod_subcategory where category_id='".$_GET['category_id']."'");
+				 while($fetch_sub_category1=mysql_fetch_array($fetch_sub_category))
+				 {
+					 extract($fetch_sub_category1);
+				 ?>
+                 <li>
+
+                    <a href="category.php?cat_type=<?php echo $prod_subcategory; ?>&category_id=1" style="cursor:pointer; text-decoration:none">
+					<div class="panel panel-primary">
+                      <div class="panel-heading">
+                        <h3 class="panel-title"><?php echo $prod_subcategory; ?></h3>             
+                    </div></div></a>
+                 </li> 
+				 <?php } ?>				 
+               </ul>
+			   <?php } 
+			   if($_GET['category_id']==3) { ?>
+			   <ul class="category_list">
+                  <li>
+				  <a href="category.php?con=3&category_id=3" style="cursor:pointer; text-decoration:none"><div class="panel panel-primary">
+                      <div class="panel-heading">
+                        <h3 class="panel-title">All</h3>
+                      </div>                      
+                    </div></a>
+                 </li>
+				 <?php $fetch_sub_category=mysql_query("select * from prod_subcategory where category_id='".$_GET['category_id']."'");
+				 while($fetch_sub_category1=mysql_fetch_array($fetch_sub_category))
+				 {
+					 extract($fetch_sub_category1);
+				 ?>
+                 <li >
+
+                    <a href="category.php?con=3&cat_type=<?php echo $prod_subcategory; ?>&category_id=3" style="cursor:pointer; text-decoration:none">
+					<div class="panel panel-primary">
+                      <div class="panel-heading">
+                        <h3 class="panel-title"><?php echo $prod_subcategory; ?></h3>             
+                    </div></div></a>
+                 </li> 
+				 <?php } ?>
+               </ul>
+			   <?php }}
+			   else
+			   { ?>
+				<ul class="category_list">
+                  <li class="active">
+				  <a href="category.php?cat_type=All" style="cursor:pointer; text-decoration:none">
+				  <div class="panel panel-primary active">
+                      <div class="panel-heading">
+                        <h3 class="panel-title">All</h3>
+                      </div>                      
+                    </div></a>
+                 </li>                
+               </ul>   
+			   <?php }
+			   ?>			   
              </div>
            </div>
            <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
              <div class="row">
                 <div class="pro_block clearfix">
+				<?php while($fetch_images1=mysql_fetch_array($fetch_images))
+		   {
+		
+			   extract($fetch_images1);
+			   ?>
                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-4 col_480_10">
                    <div class="block">
-                     <a href="javascript:void(0);" data-toggle="modal" data-target="#pro_detail_modal"><img src="images/pro/symphony-pro.jpg" class="img-responsive" alt="banner" width=" " height=" " ></a>
+                     <a onClick="modal_value(<?php echo $id ?>)" >
+					 <?php echo "<img src='images/pro/".$prod_image."' class='img-responsive'>"; ?>
+					 <!--<img src="images/pro/symphony-pro.jpg" class="img-responsive" alt="banner" width=" " height=" " >--></a>
                      <div class="pro_caption">
-                      <div class="pro_tittle"><a href="javascript:void(0);">Smart Phone</a></div>
-                      <div class="pro_brand"><a href="javascript:void(0);">Symphony</a></div>
+                      <div class="pro_tittle"><a href="javascript:void(0);"><?php echo  $prod_name; ?></a></div>
+                      <div class="pro_brand"><a href="javascript:void(0);"><?php echo  $model_num; ?></a></div>
+					  <div class="pro_brand"><a href="javascript:void(0);"><?php echo  $prod_size; ?></a></div>
                     </div>
                    </div>
                  </div>
-                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-4 col_480_10">
-                   <div class="block">
-                     <a href="javascript:void(0);"><img src="images/pro/sony-pro.jpg" class="img-responsive" alt="banner" width=" " height=" " ></a>
-                      <div class="pro_caption">
-                        <div class="pro_tittle"><a href="javascript:void(0);">Smart Phone</a></div>
-                        <div class="pro_brand"><a href="javascript:void(0);">Symphony</a></div>
-                      </div>
-                   </div>
-                 </div>
-                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-4 col_480_10">
-                   <div class="block">
-                     <a href="javascript:void(0);"><img src="images/pro/htc-pro.jpg" class="img-responsive" alt="banner" width=" " height=" " ></a>
-                      <div class="pro_caption">
-                        <div class="pro_tittle"><a href="javascript:void(0);">Smart Phone</a></div>
-                        <div class="pro_brand"><a href="javascript:void(0);">Symphony</a></div>
-                      </div>
-                   </div>
-                 </div>
-                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-4 col_480_10">
-                   <div class="block">
-                     <a href="javascript:void(0);"><img src="images/pro/xperia-pro.jpg" class="img-responsive" alt="banner" width=" " height=" " ></a>
-                      <div class="pro_caption">
-                        <div class="pro_tittle"><a href="javascript:void(0);">Smart Phone</a></div>
-                        <div class="pro_brand"><a href="javascript:void(0);">Symphony</a></div>
-                      </div>
-                   </div>
-                 </div>
-                 <div class="clearfix hidden-sm hidden-xs"></div>
-                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-4 col_480_10">
-                   <div class="block">
-                     <a href="javascript:void(0);"><img src="images/pro/symphony-pro.jpg" class="img-responsive" alt="banner" width=" " height=" " ></a>
-                     <div class="pro_caption">
-                      <div class="pro_tittle"><a href="javascript:void(0);">Smart Phone</a></div>
-                      <div class="pro_brand"><a href="javascript:void(0);">Symphony</a></div>
-                    </div>
-                   </div>
-                 </div>
-                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-4 col_480_10">
-                   <div class="block">
-                     <a href="javascript:void(0);"><img src="images/pro/sony-pro.jpg" class="img-responsive" alt="banner" width=" " height=" " ></a>
-                      <div class="pro_caption">
-                        <div class="pro_tittle"><a href="javascript:void(0);">Smart Phone</a></div>
-                        <div class="pro_brand"><a href="javascript:void(0);">Symphony</a></div>
-                      </div>
-                   </div>
-                 </div>
-                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-4 col_480_10">
-                   <div class="block">
-                     <a href="javascript:void(0);"><img src="images/pro/htc-pro.jpg" class="img-responsive" alt="banner" width=" " height=" " ></a>
-                      <div class="pro_caption">
-                        <div class="pro_tittle"><a href="javascript:void(0);">Smart Phone</a></div>
-                        <div class="pro_brand"><a href="javascript:void(0);">Symphony</a></div>
-                      </div>
-                   </div>
-                 </div>
-                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-4 col_480_10">
-                   <div class="block">
-                     <a href="javascript:void(0);"><img src="images/pro/xperia-pro.jpg" class="img-responsive" alt="banner" width=" " height=" " ></a>
-                      <div class="pro_caption">
-                        <div class="pro_tittle"><a href="javascript:void(0);">Smart Phone</a></div>
-                        <div class="pro_brand"><a href="javascript:void(0);">Symphony</a></div>
-                      </div>
+		   <?php } ?>
                    </div>
                  </div>
                  <div class="clearfix hidden-sm hidden-xs"></div>
                </div>
              </div>
            </div>
+		   
          </div>
        </div>
      </section>
 
 <!-- Modal -->
-<div id="pro_detail_modal" class="modal fade" role="dialog">
+<?php
+if(isset($_GET['image_id']))
+{
+	$image_info=mysql_query("select * from manage_product where id='".$_GET['image_id']."'");
+	$image_info1=mysql_fetch_array($image_info);
+	extract($image_info1);
+	?>
+		 <div id="pro_detail_modal" class="modal show" role="dialog">
   <div class="modal-dialog modal-lg">
 
     <!-- Modal content-->
     <div class="modal-content">
-      <!-- <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
-      </div> -->
       <div class="modal-body">
         <div class="row">
           <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <div class="wrapper left_sec">
-              <!-- <h5 class="pro_name">Smart Phone</h5>
-              <p class="modal_name">Symphony</p> -->
               <div class="image">
-                <img src="images/pro/symphony-pro.jpg" class="img-responsive" alt="banner" width=" " height=" " >
+                <?php echo "<img src='images/pro/".$prod_image."' class='img-responsive'>"; ?>
               </div>
               
             </div>
           </div>
           <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <div class="wrapper left_sec">
-              <h5 class="pro_name">Smart Phone</h5>
-              <p class="modal_name">Symphony</p>
+              <h5 class="pro_name"><?php echo $prod_name; ?></h5>
+              <p class="modal_name"><?php echo $model_num;?></p>
+			  <p class="modal_name"><?php echo $prod_size;?></p>
               <div class="pro_info">
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
@@ -224,17 +254,10 @@
                 <!-- Tab panes -->
                 <div class="tab-content">
                   <div role="tabpanel" class="tab-pane active" id="home">
-                    <p>Lorem ipsum dolor sit amet, ea eum ignota inimicus, in atqui persius partiendo sit, no sit iusto quaestio. Ad pri convenire incorrupte, possim forensibus eum et. Postea diceret interesset ea nam. In amet augue falli ius, illum placerat sed ei, duo cu impetus laoreet persecuti. Vel bonorum scriptorem ad. Ei his nisl postea. Mei soleat periculis mnesarchum ex, ea sit theophrastus definitiones.</p>
+                    <p><?php echo $description; ?></p>
                   </div>
                   <div role="tabpanel" class="tab-pane" id="profile">
-                    <ul class="info_list">
-                      <li>Veri falli aliquid sit ad, nam magna dolor eu,</li>
-                      <li>Veri falli aliquid sit ad, nam magna dolor eu,s.</li>
-                      <li>At mel erant propriae quaerendum. Dicit </li>
-                      <li>Veri falli aliquid sit ad, nam magna dolor eu,</li>
-                      <li>Veri falli aliquid sit ad, nam magna dolor eu,s.</li>
-                      <li>At mel erant propriae quaerendum. Dicit </li>
-                    </ul>
+                    <p><?php echo $specification; ?></p>
                   </div>
                 </div>
               </div>
@@ -242,38 +265,41 @@
             </div>
           </div>
           <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0">
-            <form class="pro_form">
+            <form action="prod_enquiry.php" method="POST" class="pro_form">
                 <h5 class="sec_title">Enquiry Now</h5>
                 <div class="row">
                   <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Name*"/>
+                    <input type="text" class="form-control" name="enq_name" placeholder="Name*"/>
                   </div>
                   </div>
                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                      <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Email id*"/>
+                      <input type="text" class="form-control" name="enq_email" placeholder="Email id*"/>
                     </div>
                    </div>
                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                       <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Contact*"/>
+                        <input type="text" class="form-control" name="enq_contact" placeholder="Contact*"/>
                       </div>
                    </div>
                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                       <div class="form-group">
-                        <input type="text" class="form-control" placeholder="City*"/>
+                        <input type="text" class="form-control" name="enq_city" placeholder="City*"/>
                       </div>
                    </div>
                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                       <div class="form-group">
-                        <textarea placeholder="Message" class="textarea form-control" name="message" maxlength="300" rows="8" cols="20"></textarea>
+                        <textarea placeholder="Message" name="enq_message" class="textarea form-control" name="message" maxlength="300" rows="8" cols="20"></textarea>
+						<input type="hidden" name="page_name" value="category">
+						<input type="hidden" name="prod_enq_id" value="<?php echo $_GET['image_id']?>">
                       </div>
                    </div>
                 </div> 
+				<input type="submit" name="submit" class="btn btn-default" value="Submit" />
+              <input type="button" class="btn btn-default pull-right" onClick="popclose()" value="Close" />
               </form>
-              <input type="button" class="btn btn-default" data-dismiss="modal" value="Submit" />
-              <input type="button" class="btn btn-default pull-right" data-dismiss="modal" value="Close" />
+              
           </div>
         </div>
       </div>
@@ -281,12 +307,18 @@
 
   </div>
 </div>
-
+<?php } ?>
 
     <?php include 'includes/footer.php'; ?>
 
 
     <?php include 'includes/foot.php'; ?>
+	<script>
+function popclose()
+{
+	$('#pro_detail_modal').removeClass('show');
+}
+</script>
     <script>
       $(document).on('click', '.panel-heading span.clickable', function(e){
     var $this = $(this);
@@ -376,6 +408,15 @@ $(".input-number").keydown(function (e) {
         }
     });
     </script>
+	 <script>
+	 function absd(test)
+	 {	 
+	/* window.location="category.php?category_id="+test; */
+	$('.active').removeClass("active");
+		 $('#active'+test).addClass("active");
+		 
+	 }
+		 </script>
   </body>
 
 </html>

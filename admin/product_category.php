@@ -1,17 +1,12 @@
-<?php
-session_start();
-if(!isset($_SESSION["username"])){
-header("Location: admin_login.php");
-exit;
-}
-?>
+
 <?php
 $conn=mysql_connect("localhost","root","");
 mysql_select_db("voyy",$conn);
 if(isset($_POST["add_prod"]))
 {
 	extract($_POST);
-	mysql_query("insert into product_category set category_name='$cat_name', description='$description',status='A' created_at=now()", $conn);
+	
+	mysql_query("insert into product_category set category_name='$cat_name', description='$description',status='A', created_at=now()", $conn);
 ?>
 <script ></script>
 <?php	
@@ -69,7 +64,7 @@ if(isset($_POST["add_prod"]))
       <div class="modal-content">
 	  <form action="" method="POST">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <button type="button" class="close" data-dismiss="modal" >&times;</button>
           <h4 class="modal-title">Add Category</h4>
         </div>		
         <div class="modal-body clearfix">
@@ -118,7 +113,7 @@ Description:<textarea class="form-control" name="description" value="<?php echo 
   
   
   
-  <input type="submit" class="btn btn-default pull-left submit_btn" onClick="addproduct()" name="add" value="Add Category">
+  <!--<input type="submit" class="btn btn-default pull-left submit_btn" onClick="addproduct()" name="add" value="Add Category">-->
     <div>
 	<table>
 	<tr>
@@ -128,7 +123,7 @@ Description:<textarea class="form-control" name="description" value="<?php echo 
 	<th>Action</th>
 	</tr>
 	<?php 
-	$query=mysql_query("SELECT * from product_category where status='A' order by created_at desc", $conn);
+	$query=mysql_query("SELECT * from product_category where status='A' order by id asc", $conn);
 	while($query1=mysql_fetch_array($query))
 	{
 		extract($query1);

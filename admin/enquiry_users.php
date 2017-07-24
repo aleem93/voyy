@@ -111,58 +111,35 @@ Specification:<textarea class="form-control" name="spec" ></textarea>
     </div>
   </div>
   <!-- end Add Model -->
-  
-  
-  <div class="container">
-	<div class="row">
-		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-			<input type="submit" class="btn btn-default pull-left submit_btn" name="add" onClick="addproduct()" value="Add Product">
-		</div>
-		<!--<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
-			<input type="text" class="form-control" style="margin:20px;" name="search_prod"  Placeholder="Product Name">
-		</div>
-		<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-			<input type="button" class="btn btn-default pull-left submit_btn" style="margin:20px;" name="search" value="Go" >
-		</div>-->
-	</div>
   </div>
 
     <div>
 	<table>
 	<tr>
 	<th>ID</th>
-	<th>Product Name</th>
-	<th>Category</th>
-	<th>Sub Category</th>
-	<th>Size</th>
-	<th>Model No.</th>
-	<th>Description</th>
-	<th>Specification</th>
-	<th>Action</th>
+	<th>Name</th>
+	<th>Product Id</th>
+	<th>Email Id</th>
+	<th>Contact</th>
+	<th>City</th>
+	<th>Message</th>
+	<th>Time</th>
 	</tr>
 	<?php 
-	$fetch_manage_prod=mysql_query("select * from manage_product");
+	$fetch_manage_prod=mysql_query("select * from enquiry_table");
 	while($fetch_manage_prod1=mysql_fetch_array($fetch_manage_prod))
 	{
 		extract($fetch_manage_prod1);
 	?>
 	<tr>
 	<td><?php echo $id; ?></td>
-	<td><?php echo  $prod_name;?></</td>
-	<?php $fetch_catname=mysql_query("SELECT category_name from product_category where id = '$category_id'", $conn);
-	$fetch_catname1=mysql_fetch_array($fetch_catname);?>
-	<td><?php echo $fetch_catname1['category_name']; ?></td>
-	<?php $fetch_subcat=mysql_query("SELECT prod_subcategory from prod_subcategory where id = '$sub_cat_id'", $conn);
-	$fetch_subcat1=mysql_fetch_array($fetch_subcat); ?>
-	<td><?php echo $fetch_subcat1['prod_subcategory']; ?></td>
-	<td><?php echo $prod_size; ?></</td>
-	<td><?php echo $model_num; ?></</td>
-	<td><?php echo $description; ?></</td>
-	<td><?php echo $specification; ?></</td>
-	<td class="text-center">
-	<a onClick="edit(<?php echo $id; ?>)"><i class="fa fa-pencil-square-o" style="font-size:30px;cursor:pointer;margin:2px" aria-hidden="true"></i></a>
-	<a href="product_delete.php?prod_del_id=<?php echo $id; ?>"><i class="fa fa-trash" aria-hidden="true"style="font-size:30px;cursor:pointer; margin:2px"></i></a> 	
-	</td>
+	<td><?php echo  $name;?></</td>
+	<td><?php echo $product_id; ?></td>
+	<td><?php echo $email_id; ?></td>
+	<td><?php echo $contact_num; ?></</td>
+	<td><?php echo $city; ?></</td>
+	<td><?php echo $message; ?></</td>
+	<td><?php echo $time_date; ?></</td>
 	</tr>
 	<?php } ?>
 	</table>

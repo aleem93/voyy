@@ -18,7 +18,7 @@
         <p>Something different, every day.</p>
        </div>
      </section>
-     <section class="archive_categories">
+    <!-- <section class="archive_categories">
        <div class="container">
          <div class="row">
            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -47,44 +47,45 @@
            </div>
          </div>
        </div>
-     </section>
+     </section>-->
      <section class="map_form">
-       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.0907680260734!2d77.32578721467928!3d28.5970536824318!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce4ffd0000001%3A0x97587b436ee39762!2sVibes+Communications+Pvt.Ltd.+-+Digital+Marketing+Agency+in+Delhi+NCR!5e0!3m2!1sen!2sin!4v1500539394692" width="100%" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
+      <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.0907680260734!2d77.32578721467928!3d28.5970536824318!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce4ffd0000001%3A0x97587b436ee39762!2sVibes+Communications+Pvt.Ltd.+-+Digital+Marketing+Agency+in+Delhi+NCR!5e0!3m2!1sen!2sin!4v1500539394692" width="100%" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>-->
        <div class="container">
          <div class="row">
            <div class="contact_form">
              <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0">
               <div class="category_box clearfix">
-                <form class="pro_form">
+                <form class="pro_form" action="prod_enquiry.php" method="POST">
                   <h5 class="sec_title">Get In Touch</h5>
                   <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col_480_12">
                       <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Name*"/>
+                      <input type="text" class="form-control" name="enq_name" placeholder="Name*"/>
                     </div>
                     </div>
                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col_480_12">
                        <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Email id*"/>
+                        <input type="text" class="form-control" name="enq_email" placeholder="Email id*"/>
                       </div>
                      </div>
                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col_480_12">
                         <div class="form-group">
-                          <input type="text" class="form-control" placeholder="Contact*"/>
+                          <input type="text" class="form-control" name="enq_contact" placeholder="Contact*"/>
+						  <input type="hidden" name="page_name" value="contact_us">
                         </div>
                      </div>
                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col_480_12">
                         <div class="form-group">
-                          <input type="text" class="form-control" placeholder="City*"/>
+                          <input type="text"  name="enq_city" class="form-control" placeholder="City*"/>
                         </div>
                      </div>
                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="form-group">
-                          <textarea placeholder="Message" class="textarea form-control" name="message" maxlength="300" rows="8" cols="20"></textarea>
+                          <textarea placeholder="Message" class="textarea form-control" name="enq_message" maxlength="300" rows="8" cols="20"></textarea>
                         </div>
                      </div>
                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                       <button type="button" class="btn btn-default pull-left submit_btn">Submit</button>
+                       <button type="submit" class="btn btn-default pull-left submit_btn"  name="submit">Submit</button>
                      </div>
                   </div> 
                 </form>

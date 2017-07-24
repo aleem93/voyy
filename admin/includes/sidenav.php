@@ -31,10 +31,17 @@
                      </span>
                      </a>
                      <ul class="treeview-menu">
-                        <li><a href="product_category.php">Category</a></li>
-                        <li><a href="prod_subcategory.php">Sub Category</a></li>
-                        <li><a href="manage_product.php">Manage Product</a></li>
+                        <li><a href="dash_category.php">Category</a></li>
+                        <li><a href="dash_subcategory.php">Sub Category</a></li>
+                        <li><a href="dash_manage_product.php">Manage Product</a></li>
                      </ul>
+                  </li>
+				  <li class="treeview">
+                     <a href="dash_enquiries.php">
+                     <i class="fa fa-file-text-o"></i><span>Enquiry Users</span>
+                     
+                     </a>
+                  
                   </li>
 		</ul>
 	</div>

@@ -1,9 +1,9 @@
 <?php
-session_start();
+/* session_start();
 if(!isset($_SESSION["username"])){
 header("Location: admin_login.php");
 exit;
-}
+} */
 ?>
 <?php
 $conn=mysql_connect("localhost","root","");

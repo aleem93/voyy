@@ -1,3 +1,7 @@
+<?php
+$conn=mysql_connect("localhost","root","");
+mysql_select_db("voyy",$conn);
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -74,16 +78,24 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
               <div class="row">
                 <div class="pro_block clearfix">
+				<?php
+				$fetch_four=mysql_query("select * from manage_product limit 4");
+				while($fetch_four1=mysql_fetch_array($fetch_four))
+				{
+					extract($fetch_four1);
+				?>
                   <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col_480_10">
                    <div class="block">
-                     <a href="javascript:void(0);" data-toggle="modal" data-target="#pro_enquiry_modal"><img src="images/pro/symphony-pro.jpg" class="img-responsive" alt="banner" width=" " height=" " ></a>
+                     <a href="javascript:void(0);" data-toggle="modal" data-target="#pro_enquiry_modal"><?php echo "<img src='images/pro/".$prod_image."' class='img-responsive'>"; ?></a>
                      <div class="pro_caption">
-                      <div class="pro_tittle"><a href="javascript:void(0);">Smart Phone</a></div>
-                      <div class="pro_brand"><a href="javascript:void(0);">Symphony</a></div>
+					 <div class="pro_tittle"><a href="javascript:void(0);"><?php echo $prod_name;?></a></div>
+                      <div class="pro_tittle"><a href="javascript:void(0);"><?php echo $model_num?></a></div>
+                      <div class="pro_brand"><a href="javascript:void(0);"><?php echo $prod_size; ?></a></div>
                     </div>
                    </div>
                  </div>
-                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col_480_10">
+				<?php } ?>
+               <!--   <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col_480_10">
                    <div class="block">
                      <a href="javascript:void(0);"><img src="images/pro/sony-pro.jpg" class="img-responsive" alt="banner" width=" " height=" " ></a>
                       <div class="pro_caption">
@@ -114,7 +126,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div>-->
            <!-- <div class="content">
             <div class="owl-carousel owl-theme home_new_pro">
               <div class="item">
@@ -171,7 +183,7 @@
 <!-- Modal -->
 <div id="pro_enquiry_modal" class="modal fade" role="dialog">
   <div class="modal-dialog">
-
+<form action="prod_enquiry.php" method="POST">
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
@@ -179,37 +191,43 @@
         <h4 class="modal-title">Enquiry Now</h4>
       </div>
       <div class="modal-body">
-        <form>
+
           <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
               <div class="form-group">
-              <input type="text" class="form-control" placeholder="Name*"/>
+              <input type="text" class="form-control" name="enq_name" placeholder="Name*"/>
             </div>
             </div>
              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                <div class="form-group">
-                <input type="text" class="form-control" placeholder="Email id*"/>
+                <input type="text" class="form-control" name="enq_email" placeholder="Email id*"/>
               </div>
              </div>
              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Contact*"/>
+                  <input type="text" class="form-control" name="enq_contact" placeholder="Contact*"/>
+                </div>
+             </div>
+			 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-group">
+                  <input type="text" class="form-control" name="enq_city" placeholder="City*"/>
+				  <input type="hidden" name="page_name" value="index">
                 </div>
              </div>
              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="form-group">
-                  <textarea placeholder="Message" class="textarea form-control" name="message" maxlength="300" rows="8" cols="20"></textarea>
+                  <textarea placeholder="Message"  class="textarea form-control" name="enq_message" maxlength="300" rows="8" cols="20"></textarea>
                 </div>
              </div>
           </div> 
-        </form>
+      
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default pull-left submit_btn">Submit</button>
-        <button type="button" class="btn btn-default close_btn" data-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-default pull-left submit_btn" name="Save" value="Submit">
+        <input type="button" class="btn btn-default close_btn" data-dismiss="modal" name="Cancel" Value="Cancel">
       </div>
     </div>
-
+</form>
   </div>
 </div>
 

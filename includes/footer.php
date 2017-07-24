@@ -28,19 +28,23 @@
 			<div class="clearfix hidden-lg hidden-md"></div>
 			<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 col_480_12">
 				<div class="footer_list enquiry">
-					<form>
+					<form  action="prod_enquiry.php" method="POST">
 						<h4 class="heading">Quick Enquiry</h4>
 						<div class="form-group">
-	                      <input type="text" class="form-control" placeholder="Name*"/>
+	                      <input type="text" class="form-control" name="enq_name" placeholder="Name*"/>
 	                    </div>
 	                    <div class="form-group">
-	                      <input type="text" class="form-control" placeholder="Contact*"/>
+	                      <input type="text" class="form-control" name="enq_contact" placeholder="Contact*"/>
+						  <input type="hidden" name="page_name" value="footer">
 	                    </div>
 	                    <div class="form-group">
-	                      <input type="text" class="form-control" placeholder="Email id*"/>
+	                      <input type="text" class="form-control" name="enq_email" placeholder="Email id*"/>
+	                    </div>
+						<div class="form-group">
+	                      <input type="text" class="form-control" name="enq_city" placeholder="City*"/>
 	                    </div>
 	                    <div class="form-group">
-	                      <textarea placeholder="Message" class="textarea form-control" name="message" maxlength="300" rows="8" cols="20"></textarea>
+	                      <textarea placeholder="Message" class="textarea form-control" name="enq_message" maxlength="300" rows="8" cols="20"></textarea>
 	                    </div>
 						<div class="form-group">
 	                      <div class="bannercaptcha">
@@ -48,7 +52,7 @@
 	                      </div>
 	                    </div>
 	                    <div class="form-group">
-	                      <button type="submit" value="Submit" name="submit4" class="btn btn-default enquiry_btn">Submit</button>
+	                      <button type="submit" value="Submit" name="submit" class="btn btn-default enquiry_btn">Submit</button>
 	                    </div>
 					</form>
 				</div>
